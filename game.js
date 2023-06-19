@@ -13,9 +13,10 @@ let availableQuesions = [];
 
 let questions = [];
 
+           //fetching data from open trivia database
 fetch(
-    'https://opentdb.com/api.php?amount=10&category=9&difficulty=easy&type=multiple'
-)
+    'https://opentdb.com/api.php?amount=10&category=18&difficulty=easy&type=multiple'
+) 
     .then((res) => {
         return res.json();
     })
@@ -72,7 +73,7 @@ getNewQuestion = () => {
 
     const questionIndex = Math.floor(Math.random() * availableQuesions.length);
     currentQuestion = availableQuesions[questionIndex];
-    question.innerText = currentQuestion.question;
+    question.innerHTML = currentQuestion.question;
 
     choices.forEach((choice) => {
         const number = choice.dataset['number'];
